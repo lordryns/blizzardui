@@ -9,12 +9,50 @@
   <body>
     <div id="app"></div>
     
+<style>
+  .centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    text-align: center;
+  }
 
-<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+  .ui.header {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  @media (min-width: 500px) {
+    .button-group {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .ui.button {
+    flex: 1;
+  }
+</style>
+
+<div class="centered-container">
   <h1 class="ui header">Blizzard</h1>
-  <button class="ui primary button" id="create-btn">Create</button>
-  <button class="ui button">Edit Store</button>
+  <div class="button-group">
+    <button class="ui primary button" id="create-btn">Create</button>
+    <button class="ui button">Edit Store</button>
+  </div>
 </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
