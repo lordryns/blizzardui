@@ -7,16 +7,44 @@
     <title>Blizzard</title>
   </head>
   <body>
-    <div id="app"></div>
-    
-<div class="centered-container">
-  <h1 class="ui header">Blizzard</h1>
-  <div class="button-group" id="create-edit-group">
-    <button class="ui primary button" id="create-btn">Create</button>
-    <button class="ui button">Edit Store</button>
+
+  
+  <div class="ui segment">
+    <div class="ui grid">
+      <div class="sixteen wide column right aligned">
+        <button class="ui button primary" id="create-new-btn">New</button>
+        <button class="ui button" id="load-store-btn">Load store</button>
+      </div>
+    </div>
+  </div>
+
+
+    <div id="content">
+      
+    </div>
+
+    <!-- popup modals -->
+<div class="ui modal" id="load-store-modal">
+  <i class="close icon"></i>
+  <div class="header">
+        Load Store
+  </div>
+
+      <div class="ui container">
+        <div class="ui input" id="load-store-input">
+          <input type="text" placeholder="Enter store key...">
+        </div>
+      </div>
+  <div class="actions">
+    <button class="ui black deny button">
+      Cancel
+    </button>
+    <button class="ui positive right labeled icon button">
+      Load
+      <i class="checkmark icon"></i>
+    </button>
   </div>
 </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
