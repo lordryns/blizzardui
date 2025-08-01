@@ -13,10 +13,10 @@ const webContent = document.getElementById("content");
 let base_url = "https://weblizzard.onrender.com";
 
 createStoreBtn.onclick = async function () {
-  webContent.innerHTML = formanticLoader();
+  webContent.innerHTML += formanticLoader();
   try {
     let res = await axios.post(base_url + "/create_store")
-    webContent.innerHTML = res.data.id;
+    
     $.toast({
       class: 'success',
       title: 'Success',
@@ -24,6 +24,12 @@ createStoreBtn.onclick = async function () {
       showProgress: 'bottom'
     })
     ;
+
+    storeId = res.data.id;
+    fillStoreContent();
+
+
+    document.getElementById("page-loader").remove();
   } catch(err) {
     webContent.innerHTML = String(err);
   }
@@ -35,8 +41,14 @@ loadStoreBtn.onclick = function () {
   ;
 }
 
+function fillStoreContent() {
+  let storeIdInput = document.getElementById("store-id");
+
+  storeIdInput.value = storeId;
+}
+
 function formanticLoader() {
-  return `<div class="ui active dimmer">
+  return `<div class="ui active dimmer" id="page-loader">
     <div class="ui medium text loader">Loading</div>
   </div>
   <p></p>

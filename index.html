@@ -19,10 +19,58 @@
   </div>
 
 
-    <div id="content">
-      
-    </div>
+    
+<div id="content" class="ui container">
 
+  <!-- Store ID Input -->
+  <div class="ui input fluid">
+    <input type="text" id="store-id" placeholder="Store id..." disabled>
+  </div>
+
+  <div class="ui divider"></div>
+
+  <!-- Key-Value Input -->
+  <div class="ui form">
+    <div class="fields stackable">
+      <div class="eight wide field">
+        <input type="text" placeholder="Key">
+      </div>
+      <div class="eight wide field">
+        <input type="text" placeholder="Value">
+      </div>
+    </div>
+    <button class="ui primary fluid button">Add</button>
+  </div>
+
+  <div class="ui divider"></div>
+
+  <!-- Key-Value Table -->
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th class="collapsing">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>exampleKey</td>
+        <td>exampleValue</td>
+        <td>
+          <button class="ui icon mini button" title="Edit">
+            <i class="edit icon"></i>
+          </button>
+          <button class="ui icon mini button" title="Delete">
+            <i class="trash icon"></i>
+          </button>
+        </td>
+      </tr>
+      <!-- More rows go here -->
+    </tbody>
+  </table>
+
+</div>
     <!-- popup modals -->
 <div class="ui modal" id="load-store-modal">
   <i class="close icon"></i>
