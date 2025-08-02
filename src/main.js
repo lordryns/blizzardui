@@ -3,7 +3,6 @@ import 'fomantic-ui-css/semantic.min.css';
 import 'fomantic-ui-css/semantic.min.js';
 import axios from "axios";
 
-let storeId = null;
 
 const createStoreBtn = document.getElementById("create-new-btn");
 const loadStoreBtn = document.getElementById("load-store-btn");
@@ -11,6 +10,8 @@ const loadStoreBtn = document.getElementById("load-store-btn");
 const webContent = document.getElementById("content");
 
 let base_url = "https://weblizzard.onrender.com";
+
+fillStoreContent();
 
 createStoreBtn.onclick = async function () {
   webContent.innerHTML += formanticLoader();
@@ -25,7 +26,7 @@ createStoreBtn.onclick = async function () {
     })
     ;
 
-    storeId = res.data.id;
+    sessionStorage.setItem("store-id", res.data.id);
     fillStoreContent();
 
 
@@ -44,7 +45,48 @@ loadStoreBtn.onclick = function () {
 function fillStoreContent() {
   let storeIdInput = document.getElementById("store-id");
 
+  
+    let storeId = sessionStorage.getItem("store-id");
   storeIdInput.value = storeId;
+
+  let keyInput = document.getElementById("key-input");
+  let valueInput = document.getElementById("value-input");
+  let addBtn = document.getElementById("add-btn");
+
+
+
+  addBtn.onclick = function () {
+  let storeId = sessionStorage.getItem("store-id");
+  if (!storeId) {
+    $.toast({
+      class: 'error',
+      title: 'Error',
+      message: 'No store is currently open!',
+      showProgress: 'bottom'
+    })
+    ;
+
+
+  } else {
+      if (keyInput.value.length < 1 || valueInput.value.length < 1) {
+        $.toast({
+          class: 'error',
+          title: 'Error',
+          message: 'Neither key nor value can be left empty!',
+          showProgress: 'bottom'
+        })
+        ;
+      } else {
+          $.toast({
+            class: 'success',
+            title: 'Success',
+            message: `${keyInput.value} added successfully!`,
+            showProgress: 'bottom'
+          })
+          ;
+          }
+    }
+}
 }
 
 function formanticLoader() {
@@ -54,3 +96,8 @@ function formanticLoader() {
   <p></p>
   <p></p>`
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+ 
+})

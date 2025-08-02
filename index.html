@@ -33,43 +33,50 @@
   <div class="ui form">
     <div class="fields stackable">
       <div class="eight wide field">
-        <input type="text" placeholder="Key">
+        <input type="text" id="key-input" placeholder="Key">
       </div>
       <div class="eight wide field">
-        <input type="text" placeholder="Value">
+        <input type="text" id="value-input" placeholder="Value">
       </div>
     </div>
-    <button class="ui primary fluid button">Add</button>
+    <button class="ui primary fluid button" id="add-btn">Add</button>
   </div>
 
   <div class="ui divider"></div>
 
   <!-- Key-Value Table -->
-  <table class="ui celled table">
+
+<!-- Key-Value Table -->
+
+<div class="ui segment" style="overflow-x: auto;">
+  <table class="ui celled striped compact unstackable table">
     <thead>
       <tr>
-        <th>Key</th>
-        <th>Value</th>
-        <th class="collapsing">Actions</th>
+        <th style="min-width: 100px;">Key</th>
+        <th style="min-width: 150px;">Value</th>
+        <th style="min-width: 100px;" class="center aligned">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>exampleKey</td>
-        <td>exampleValue</td>
-        <td>
-          <button class="ui icon mini button" title="Edit">
+        <td style="word-break: break-word;">exampleKey</td>
+        <td style="word-break: break-word;">
+          exampleValue with some longer text to wrap gracefully on small screens
+        </td>
+        <td class="center aligned">
+          <button class="ui icon blue mini button" title="Edit">
             <i class="edit icon"></i>
           </button>
-          <button class="ui icon mini button" title="Delete">
+          <button class="ui icon red mini button" title="Delete">
             <i class="trash icon"></i>
           </button>
         </td>
       </tr>
-      <!-- More rows go here -->
+
+
     </tbody>
   </table>
-
+</div>
 </div>
     <!-- popup modals -->
 <div class="ui modal" id="load-store-modal">
