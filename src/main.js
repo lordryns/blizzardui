@@ -5,8 +5,8 @@ import axios from "axios";
 
 
 const createStoreBtn = document.getElementById("create-new-btn");
-const loadStoreBtn = document.getElementById("load-store-btn");
-
+const loadStoreBtn = document.getElementById("load-store-btn"); // launches modal
+const loadStoreBtnMain = document.getElementById("load-store-btn-main"); // the main one
 const webContent = document.getElementById("content");
 
 let base_url = "https://weblizzard.onrender.com";
@@ -42,11 +42,25 @@ loadStoreBtn.onclick = function () {
   ;
 }
 
+loadStoreBtnMain.onclick = function () {
+    const loadStoreInput = document.getElementById("load-store-input");
+  if (loadStoreInput.value.length > 0) {
+    sessionStorage.setItem("store-id", loadStoreInput.value);
+    fillStoreContent();
+  } else {
+      $.toast({
+        class: 'error',
+        title: 'Error',
+        message: 'Enter a valid store key!',
+        showProgress: 'bottom'
+      })
+    ;
+  }
+}
+
 function fillStoreContent() {
   let storeIdInput = document.getElementById("store-id");
-
-  
-    let storeId = sessionStorage.getItem("store-id");
+  let storeId = sessionStorage.getItem("store-id");
   storeIdInput.value = storeId;
 
   let keyInput = document.getElementById("key-input");
@@ -98,6 +112,3 @@ function formanticLoader() {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
- 
-})
